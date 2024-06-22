@@ -17,5 +17,6 @@ mongoose.connect("mongodb+srv://mansimar:mansimar.todo123@todocluster.udfowtl.mo
     });
 
 app.use(cors());
-app.use("/", routes);
 app.use(express.json());
+
+app.use("/", routes);

@@ -3,7 +3,7 @@ import todoSchema from '../models/todo.js';
 export const createToDo = async (req, res) => {
     try {
         const { task, priority, status, dueDate } = req.body;
-        if (!task || !priority || !status || !dueDate) {
+        if (!task || !status || !dueDate) {
             return res.status(400).send({ success: false });
         }
         await todoSchema.create({ task, priority, status, dueDate });
@@ -18,7 +18,7 @@ export const updateToDo = async (req, res) => {
     try {
         const { id } = req.params;
         const { task, priority, status, dueDate } = req.body;
-        if (!id || !task || !priority || !status || !dueDate) {
+        if (!id || !task || !status || !dueDate) {
             return res.status(400).send({ success: false });
         }
         const isUpdated = await todoSchema.findOneAndUpdate({ _id: id }, { task, priority, status, dueDate });
