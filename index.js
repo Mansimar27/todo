@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
-import routes from './routes/todo.js';
+import routes from './src/routes/todo.js';
 
 const port = 1212;
 const app = express();
