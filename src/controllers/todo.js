@@ -49,6 +49,23 @@ export const deleteToDo = async (req, res) => {
     }
 }
 
+export const getToDo = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ success: false });
+        }
+        const todo = await todoSchema.findById(id);
+        if (!todo) {
+            return res.status(400).send({ success: false });
+        }
+        return res.status(200).send({ success: true, todo });
+    } catch (error) {
+        console.log("Error- ", error);
+        return res.status(400).send({ success: false });
+    }
+}
+
 export const getAllToDo = async (req, res) => {
     try {
         const todos = await todoSchema.find({ isDeleted: false });
