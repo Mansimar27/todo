@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// Schema for todo collection in MongoDB (Atlas).
 var todoSchema = new mongoose.Schema({
     task: {
         type: String,
